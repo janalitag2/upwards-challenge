@@ -1,0 +1,8 @@
+{
+    "compilerOptions": {
+      "esModuleInterop": true,
+      "jsx": "react-jsx"
+    },
+    "include": ["global.d.ts", "src/**/*.ts", "src/**/*.tsx"],
+    "types": ["node", "jest", "@testing-library/jest-dom"]
+  }
