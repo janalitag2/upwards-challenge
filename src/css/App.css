@@ -1,0 +1,254 @@
+@import "./globals.css";
+
+.app {
+  display: grid;
+  grid-template-areas:
+    "header"
+    "content";
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  position: absolute;
+  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+  background-color: #000;
+}
+
+.app > .nav-bar {
+  padding: 16px;
+}
+
+.app-content {
+  grid-area: content;
+  background-image: linear-gradient(
+    var(--background-base),
+    var(--background-highlight) 15%
+  );
+  overflow: auto;
+  height: 100%;
+}
+
+.album-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  transition: all 0.5s ease;
+  animation: slide-top 0.75s cubic-bezier(0.25, 0.46, 0.45, 0.94) both,
+    fadeIn 2s forwards;
+  opacity: 0;
+  overflow: hidden;
+  height: auto;
+}
+
+@keyframes slide-top {
+  0% {
+    transform: translateY(100px);
+  }
+  100% {
+    transform: translateY(0), translate(-5px, -5px);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.album-card {
+  display: inline-block;
+  width: 170px;
+  height: 215px;
+  transition: all 0.5s ease;
+  border-radius: 5%;
+  padding: 4px;
+  background-color: #2c2c2c;
+}
+
+.album-card:hover {
+  transition: all 0.5s ease;
+  transform: translate(-3px, -3px);
+  background-color: #4e4d4d;
+  cursor: pointer;
+}
+
+.album-card > .album-body {
+  color: var(--text-color);
+}
+
+.album-card > .album-img img {
+  border-radius: 5%;
+}
+
+.album-card-wrapper {
+  display: flex;
+  justify-content: flex-start;
+  margin: 16px;
+}
+
+.album-number {
+  display: flex;
+  width: 30px;
+  justify-content: flex-end;
+  margin-right: 4px;
+  font-size: 14px;
+  opacity: 0.7;
+}
+
+.album-text {
+  margin: 0 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.album-text span {
+  display: block;
+  font-size: 75%;
+  opacity: 0.75;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.content-header {
+  margin-left: 32px;
+}
+
+.filter-results-container {
+  margin-left: 32px;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+.filter-button {
+  border-radius: 35%;
+}
+
+/* https://raju28.github.io/loaders/ */
+.loader {
+  width: 45px;
+  height: 45px;
+  margin: 47px auto;
+  background: transparent;
+  border-top: 4px solid white;
+  border-right: 4px solid transparent;
+  border-radius: 50%;
+  -webkit-animation: 1s spin linear infinite;
+  animation: 1s spin linear infinite;
+}
+
+@-webkit-keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+.nav-bar {
+  grid-area: header;
+  display: flex;
+  flex-direction: row;
+  min-height: 48px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  background-image: radial-gradient(
+    ellipse at center,
+    var(--background-base) 1%,
+    var(--background-highlight) 90%
+  );
+}
+
+.pagination-container {
+  display: flex;
+  height: 48px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  background-image: radial-gradient(
+    ellipse at center,
+    var(--background-base) 1%,
+    var(--background-highlight) 90%
+  );
+}
+
+.button {
+  background-color: hsla(0, 0%, 100%, 0.3);
+  height: 24px;
+  color: var(--text-color);
+  padding: 0 8px 0 8px;
+}
+
+.highlight {
+  background-color: var(--text-color);
+  color: #111;
+}
+
+button:disabled {
+  opacity: 0.65;
+}
+
+.svg {
+  color: var(--text-color);
+}
+
+.search-bar-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  margin: 0 24px 0 24px;
+}
+
+.search-input {
+  width: 100%;
+  background: url("../assets/icons8-search.svg") no-repeat;
+  background-position: 20px 3px;
+  background-size: 20px;
+  transition: all 0.22s ease-in;
+  text-overflow: ellipsis;
+  cursor: text;
+  border-radius: 500px;
+  box-shadow: none;
+  padding-inline-start: calc(24px + 12px * 2);
+  padding-inline-end: 24px;
+  font-family: inherit;
+  font-size: 1.1em;
+  -webkit-font-smoothing: antialiased;
+  border: 0;
+  color: var(--text-color);
+  margin: 0em;
+  min-block-size: 24px;
+  text-transform: none;
+  background-color: hsla(0, 0%, 100%, 0.3);
+}
+
+.search-input:focus {
+  outline: none !important;
+  border: 1px solid var(--text-color);
+  /* box-shadow: 0 0 10px #719ece; */
+}
+
+.search-input::placeholder {
+  color: var(--text-color);
+  opacity: 0.7;
+}
