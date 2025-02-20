@@ -221,7 +221,7 @@ button:disabled {
 
 .search-input {
   width: 100%;
-  background: url("../assets/icons8-search.svg") no-repeat;
+  background: url("../assets/icons8-search.svg") no-repeat; /*"https://icons8.com/icon/132/search" */
   background-position: 20px 3px;
   background-size: 20px;
   transition: all 0.22s ease-in;
